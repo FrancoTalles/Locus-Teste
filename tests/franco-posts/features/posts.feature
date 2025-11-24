@@ -20,7 +20,7 @@ Feature: Crud de Posts - Franco
         And o campo "post_id" deve ser igual a 1
 
     Scenario: Criar um novo post com sucesso
-        When envio um novo post com descricao "Novo Post" e usuario 2
+        When envio um novo post com descricao "Novo Post", usuario 2 e local 3
         Then o sistema deve retornar status 201
         And o campo "descricao" deve ser igual a "Novo Post"
         And o campo "usuario_id" deve ser igual a 2
