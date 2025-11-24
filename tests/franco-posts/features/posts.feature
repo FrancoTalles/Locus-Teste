@@ -24,3 +24,9 @@ Feature: Crud de Posts - Franco
         Then o sistema deve retornar status 201
         And o campo "descricao" deve ser igual a "Novo Post"
         And o campo "usuario_id" deve ser igual a 2
+
+    Scenario: Atualizar um post existente com sucesso
+        Given que tenho posts cadastrados no sistema
+        When atualizo o post criado anteriormente com a nova descricao "100% atualizado"
+        Then o sistema deve retornar status 200
+        And o campo "descricao" deve ser igual a "100% atualizado"
