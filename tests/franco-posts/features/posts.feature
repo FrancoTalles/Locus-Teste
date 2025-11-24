@@ -2,7 +2,7 @@ Feature: Crud de Posts - Franco
     Como usuário da API
     Quero realizar operações de CRUD no recurso de Posts
 
-    Context:
+    Background:
         Given que a url base da API é "http://localhost:3000"
         And que o endpoint de posts é "/post" 
 
