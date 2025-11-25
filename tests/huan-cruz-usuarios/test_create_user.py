@@ -16,7 +16,7 @@ def send_create_user(context, nome, email, senha):
     }
     context["response"] = requests.post(url, json=payload)
 
-    novo_id = context['response'].json().get('post_id')
+    novo_id = context['response'].json().get('usuario_id')
     context['ids_para_limpeza'].append(novo_id)
 
 @then('o sistema deve retornar status 201')
