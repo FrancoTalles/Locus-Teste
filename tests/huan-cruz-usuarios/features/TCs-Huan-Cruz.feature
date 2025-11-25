@@ -3,7 +3,7 @@ Feature: CRUD de Usuários - Huan Cruz
   Quero realizar operações de CRUD no recurso de Usuários
 
   Background:
-    Given que a url base da API é "http://localhost:3000"
+    Given que a url base da API é "http://72.61.43.201"
     And que o endpoint de usuarios é "/usuarios"
 
   Scenario: Listar todos os Usuários Cadastrados
