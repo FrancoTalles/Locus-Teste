@@ -17,6 +17,10 @@ def send_post_request(context, descricao, usuario_id, local_id):
     }
     
     context['response'] = requests.post(full_url, json=payload)
+
+    novo_id = context['response'].json().get('post_id')
+    context['ids_para_limpeza'].append(novo_id)
+    
     print(context['response'].json())
 
 @then('o sistema deve retornar status 201')

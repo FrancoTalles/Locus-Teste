@@ -3,7 +3,7 @@ Feature: Crud de Posts - Franco
     Quero realizar operações de CRUD no recurso de Posts
 
     Background:
-        Given que a url base da API é "http://localhost:3000"
+        Given que a url base da API é "http://72.61.43.201"
         And que o endpoint de posts é "/post" 
 
     Scenario: Listar todos os Posts Cadastrados
