@@ -24,4 +24,4 @@ Feature: Crud de Locais - Victor Hugo
     Then o sistema deve retornar status 200
     And o campo "local_id" deve ser igual a 1
     # Adiciona uma validação de dado específico
-    And o campo "nome" do local deve ser "Nome do Local Existente"
+    And o campo "nome" do local deve ser "Largo Sao Sebastiao"
