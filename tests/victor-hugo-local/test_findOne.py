@@ -1,32 +1,7 @@
 import pytest
 import requests
-from pytest_bdd import scenario, given, when, then, parsers
+from pytest_bdd import scenario,  when, then, parsers
 
-# ID que será usado para a busca bem-sucedida
-EXISTING_ID = 1 
-EXISTING_LOCAL_NAME = "Largo Sao Sebastiao" 
-
-
-@pytest.fixture
-def context():
-    """Fixture para compartilhar dados (estado) entre os steps de um cenário."""
-    return {
-        'base_url': "http://localhost:3000",
-        'endpoint': "/local",
-        'full_url': "http://localhost:3000/local", 
-        'response': None
-    }
-
-
-@given(parsers.parse('que a url base da API é "{url}"'))
-def set_base_url(context, url):
-    assert context['base_url'] == url
-
-@given(parsers.parse('que o endpoint de local é "{endpoint}"'))
-def set_endpoint(context, endpoint):
-    assert context['endpoint'] == endpoint
-    expected_full_url = f"{context['base_url']}{context['endpoint']}"
-    assert context['full_url'] == expected_full_url
 
 # --- CENÁRIO (GET por ID) ---
 
@@ -36,22 +11,8 @@ def test_buscar_local_por_id_existente():
     pass
 
 
-@given('que tenho locais cadastrados no sistema')
-def setup_locais_cadastrados_for_find(context):
-    """
-    Garante que o Local com ID 1 existe para o teste.
-    Em um ambiente real, você faria um POST aqui, mas para simulação,
-    apenas definimos o ID esperado e o Nome esperado.
-    """
-    context['local_id_to_find'] = EXISTING_ID
-    context['expected_name'] = EXISTING_LOCAL_NAME
-    pass
-
-
-
 @when(parsers.parse('pesquiso pelo local com ID {local_id:d}'))
 def send_get_by_id_request(context, local_id):
-    """Envia a requisição GET para /local/{id}."""
     context['local_id'] = local_id 
     url_with_id = f"{context['full_url']}/{local_id}"
     try:
