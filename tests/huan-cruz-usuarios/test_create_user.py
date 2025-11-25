@@ -1,7 +1,6 @@
 import requests
 from pytest_bdd import scenario, when, then, parsers
 
-# CORREÇÃO: Aponta para o arquivo Gherkin correto
 @scenario("features/TCs-Huan-Cruz.feature", "Criar um novo usuário com sucesso")
 def test_run():
     pass
@@ -16,6 +15,9 @@ def send_create_user(context, nome, email, senha):
         "foto_perfil": ""
     }
     context["response"] = requests.post(url, json=payload)
+
+    novo_id = context['response'].json().get('usuario_id')
+    context['ids_para_limpeza'].append(novo_id)
 
 @then('o sistema deve retornar status 201')
 def check_status(context):
