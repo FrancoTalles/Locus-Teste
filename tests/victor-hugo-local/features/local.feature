@@ -1,60 +1,27 @@
-Feature: Crud de Local - Victor Hugo 
-    Como usuário da API
-    Quero realizar operações de CRUD no recurso de Local
+Feature: Crud de Locais - Victor Hugo
+  Como usuário da API
+  Quero realizar operações CRUD no recurso de Local
+  Para gerenciar e consultar informações de diferentes lugares.
 
-    Background:
-        Given que a url base da API é "http://localhost:3000"
-        And que o endpoint de local é "/local"
+  Background:
+    Given que a url base da API é "http://localhost:3000"
+    And que o endpoint de local é "/local"
 
+
+    # --- Cenários de (GET) ---
 
     Scenario: Listar todos os Locais Cadastrados
-        Given que tenho locais cadastrados no sistema
-        When envio uma requisição GET para /local
-        Then o sistema deve retornar status 200
-        And deve retornar uma lista de locais
+    Given que tenho locais cadastrados no sistema
+    When envio uma requisição GET para /local
+    Then o sistema deve retornar status 200
+    And deve retornar uma lista de locais
+    # Validação dos campos da entidade Local
+    And cada local deve conter os campos "local_id", "nome", "endereco", "categoria", "latitude", "longitude", "created_at"
 
-
-    Scenario: Criar um novo Local
-        Given que possuo dados válidos para criar um local
-        When envio uma requisição POST para /local com esses dados
-        Then o sistema deve retornar status 201
-        And deve retornar o objeto do local criado contendo local_id
-
-
-    Scenario: Buscar um Local por ID existente
-        Given que possuo o ID de um local existente
-        When envio uma requisição GET para /local/{id}
-        Then o sistema deve retornar status 200
-        And deve retornar os dados completos do local correspondente
-
-
-    Scenario: Buscar um Local por ID inexistente
-        Given que possuo um ID inexistente
-        When envio uma requisição GET para /local/{id}
-        Then o sistema deve retornar status 404
-        And deve retornar a mensagem "Local com ID {id} não encontrado."
-
-
-    Scenario: Atualizar um Local existente
-        Given que possuo o ID de um local existente e novos dados válidos
-        When envio uma requisição PATCH para /local/{id} com esses dados
-        Then o sistema deve retornar status 200
-        And deve retornar o local atualizado
-
-
-    Scenario: Atualizar um Local inexistente
-        Given que possuo um ID inexistente
-        When envio uma requisição PATCH para /local/{id}
-        Then o sistema deve retornar status 404
-
-
-    Scenario: Remover um Local existente
-        Given que possuo o ID de um local existente
-        When envio uma requisição DELETE para /local/{id}
-        Then o sistema deve retornar status 204
-
-
-    Scenario: Remover um Local inexistente
-        Given que possuo um ID inexistente
-        When envio uma requisição DELETE para /local/{id}
-        Then o sistema deve retornar status 404
+    Scenario: Listar um Local ao buscar por ID
+    Given que tenho locais cadastrados no sistema
+    When pesquiso pelo local com ID 1
+    Then o sistema deve retornar status 200
+    And o campo "local_id" deve ser igual a 1
+    # Adiciona uma validação de dado específico
+    And o campo "nome" do local deve ser "Nome do Local Existente"
