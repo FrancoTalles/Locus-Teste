@@ -1,7 +1,7 @@
 import requests
 from pytest_bdd import scenario, when, then, parsers
 
-@scenario('seguidores.feature', '5 - Tentar Deixar de Seguir uma Relação Inexistente (404)')
+@scenario('features/seguidores.feature', 'Tentar Deixar de Seguir uma Relação Inexistente (404)')
 def test_deixar_de_seguir_inexistente():
     """Testa a tentativa de remover uma relação inexistente (DELETE 404)."""
     pass

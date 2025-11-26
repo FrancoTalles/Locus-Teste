@@ -27,6 +27,9 @@ def send_post_local_success(context, nome, endereco, categoria, latitude, longit
         created_data = response.json()
         context['id_local_criado'] = created_data.get('local_id')
         context['created_local_name'] = nome
+
+        novo_id = context['response'].json().get('local_id')
+        context['ids_para_limpeza'].append(novo_id)
     
 
 @then(parsers.parse('o campo "local_id" deve ser preenchido (não nulo)'))
