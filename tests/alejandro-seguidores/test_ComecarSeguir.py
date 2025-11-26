@@ -1,7 +1,7 @@
 import requests
 from pytest_bdd import scenario, when, then, parsers
 
-@scenario('seguidores.feature', '1 - Seguir um Usuário com Sucesso')
+@scenario('features/seguidores.feature', 'Seguir um Usuário com Sucesso')
 def test_seguir_sucesso():
     """Testa a criação de uma relação de seguidor com sucesso (POST 201)."""
     pass

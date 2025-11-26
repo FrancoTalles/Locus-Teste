@@ -16,6 +16,10 @@ def send_comentario_request(context, comentario, usuario_id, post_id):
     }
 
     context['response'] = requests.post(full_url, json=payload)
+
+    novo_id = context['response'].json().get('comentario_id')
+    context['ids_para_limpeza'].append(novo_id)
+
     print(context['response'].json())
 
 

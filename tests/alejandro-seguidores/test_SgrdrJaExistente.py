@@ -1,7 +1,7 @@
 import requests
 from pytest_bdd import scenario, when, then, parsers
 
-@scenario('seguidores.feature', '4 - Tentar Seguir um Usuário que Já é Seguido (Conflito 409)')
+@scenario('features/seguidores.feature', 'Tentar Seguir um Usuário que Já é Seguido (Conflito 409)')
 def test_seguir_conflito():
     """Testa a tentativa de seguir um usuário que já é seguido (POST 409)."""
     pass

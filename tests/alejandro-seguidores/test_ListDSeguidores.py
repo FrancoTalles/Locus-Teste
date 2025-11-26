@@ -1,7 +1,7 @@
 import requests
 from pytest_bdd import scenario, when, then, parsers
 
-@scenario('seguidores.feature', '2 - Deixar de Seguir um Usuário com Sucesso')
+@scenario('features/seguidores.feature', 'Deixar de Seguir um Usuário com Sucesso')
 def test_deixar_de_seguir_sucesso():
     """Testa a remoção de uma relação de seguidor com sucesso (DELETE 200)."""
     pass

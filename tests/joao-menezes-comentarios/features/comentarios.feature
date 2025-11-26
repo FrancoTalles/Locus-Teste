@@ -3,7 +3,7 @@ Feature: Crud de Comentarios - Joao Menezes
     Quero realizar operações de criação de comentários no recurso de Comentarios
 
     Background:
-        Given que a url base da API é "http://localhost:3000"
+        Given que a url base da API é "http://72.61.43.201"
         And que o endpoint de comentarios é "/comentarios" 
     
     Scenario: Criar um novo comentario
@@ -21,7 +21,7 @@ Feature: Crud de Comentarios - Joao Menezes
 
     Scenario: Listar um comentário ao buscar por ID
         Given que tenho comentarios cadastrados no sistema
-        When pesquiso pelo comentário com ID 1
+        When pesquiso pelo comentário com ID 3
         Then o sistema deve retornar status 200
         And o campo "post_id" deve ser igual a 2
     

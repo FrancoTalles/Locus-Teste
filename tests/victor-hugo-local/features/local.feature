@@ -4,7 +4,7 @@ Feature: Crud de Locais - Victor Hugo
   Para gerenciar e consultar informações de diferentes lugares.
 
   Background:
-    Given que a url base da API é "http://localhost:3000"
+    Given que a url base da API é "http://72.61.43.201"
     And que o endpoint de local é "/local"
 
 
